@@ -138,6 +138,11 @@ public class CharacterBattle {
         System.out.println("The Final Scores are:");
         System.out.println(playerNames[0] + ": " + wins[0] + " wins");
         System.out.println(playerNames[1] + ": " + wins[1] + " wins");
+        if (wins[0] > wins[1]){
+            System.out.println(playerNames[0] + " Wins!");
+        } else if (wins[1] > wins[0]) {
+            System.out.println(playerNames[1] + " Wins!");
+        }
 
         scn.close();
 
