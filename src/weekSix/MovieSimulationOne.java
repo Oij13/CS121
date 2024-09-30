@@ -18,7 +18,7 @@ public class MovieSimulationOne {
         double moviePrices [] = new double [constant];
 
         for (int i = 0; i < constant; i++){
-            System.out.println("Enter in your character details" + (i+1));
+            System.out.println("Enter in your character details " + (i+1));
             System.out.println("Movie Name:");
             movieNames[i] = scn.nextLine();
             System.out.println("Movie Type:");
