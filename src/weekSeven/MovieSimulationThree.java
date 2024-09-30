@@ -1,5 +1,5 @@
 package weekSeven;
-
+import java.util.Scanner;
 import java.util.Random;
 
 public class MovieSimulationThree {
@@ -14,17 +14,39 @@ public class MovieSimulationThree {
         final int COLUMNS = 10;
         int[][] movieAvailablility = new int [ROWS][COLUMNS];
 
-
         displayMovieDetails(movieNames, movieTypes, moviePrices);
+        int index = selectMovie(movieNames);
+        displaySelectedMovie(movieNames[index],movieTypes[index],moviePrices[index]);
+        /*displayMovieDetails(movieNames, movieTypes, moviePrices);
         setSeatAvailability(movieAvailablility);
-        displaySeatAvailability(movieAvailablility);
+        displaySeatAvailability(movieAvailablility);*/
         randomizeAvailability(movieAvailablility);
         displaySeatAvailability(movieAvailablility);
 
 
     }
 
-    static void selectMovie(){
+    static void displaySelectedMovie(String movieNames, String movieTypes, double moviePrices){
+        System.out.printf("\n%s Movie Selections %s\n","-".repeat(20),"-".repeat(20));
+        System.out.printf("%-20s %-20s%-20s\n", "Movie Name", "Movie Type", "Movie Price");
+        System.out.printf("%-25s%-20s$%.2f\n", movieNames,movieTypes,moviePrices);
+    }
+
+
+    static int selectMovie(String movieNames[]){
+        Scanner scn = new Scanner(System.in);
+        String selectedMovie;
+        while(true){
+            System.out.println("\nEnter the Movie name you are going to see: ");
+            selectedMovie = scn.nextLine();
+            for (int i = 0; i < movieNames.length; i++){
+                if (selectedMovie.equals(movieNames[i])){
+                    return i;
+                }
+            }
+            System.out.println("Movie not found. Please try again:\n ");
+        }
+
 
     }
 
@@ -52,7 +74,7 @@ public class MovieSimulationThree {
     public static void randomizeAvailability(int [][] movieAvailability){
         Random rand = new Random();
 
-        char rowLabel[] = {'A', 'B', 'C', 'D', 'E'};
+        /*char rowLabel[] = {'A', 'B', 'C', 'D', 'E'};
         for (int c = 1; c <= movieAvailability[0].length; c++){
             System.out.printf("%d  ", c);
 
@@ -62,10 +84,9 @@ public class MovieSimulationThree {
 
         for (int i = 0; i < movieAvailability.length; i++){
             System.out.printf("\n %c|",rowLabel[i]);
-        }
+        }*/
 
         for (int i = 0; i < movieAvailability.length; i++){
-
             for (int j = 0; j < movieAvailability[i].length; j++){
                 movieAvailability[i][j] = rand.nextInt(2);
             }
@@ -73,8 +94,15 @@ public class MovieSimulationThree {
     }
     static void displaySeatAvailability(int [][] movieAvailability){
         System.out.println("\nSeating Availability: 1 = unavailable ; 0 = available");
-        for (int i = 0; i < movieAvailability.length; i++){
+        char rowLabel[] = {'A', 'B', 'C', 'D', 'E'};
+        System.out.print("    ");
+        for (int c = 1; c <= movieAvailability[0].length; c++){
+            System.out.printf("%d ", c);
 
+        }
+        System.out.println("");
+        for (int i = 0; i < movieAvailability.length; i++){
+            System.out.printf("%c | ", rowLabel[i]);
             for (int j = 0; j < movieAvailability[i].length; j++){
                 System.out.print( movieAvailability[i][j] + " ");
             }
