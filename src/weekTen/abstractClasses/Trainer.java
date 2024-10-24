@@ -12,6 +12,7 @@ public class Trainer extends ClassUser{
     public void setClassesConducted(int classesConducted){
         this.classesConducted = classesConducted;
     }
+
     public String displayInfo(){
         return String.format("Name: %s\nID: %d\nClasses Conducted: %d\n", name, id, classesConducted);
     }
