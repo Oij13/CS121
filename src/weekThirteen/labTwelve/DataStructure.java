@@ -20,7 +20,7 @@ public class DataStructure {
     }
     public void addAge(int age){
         if(ageIndex < ageList.length) {
-            ageList[++ageIndex] = age;
+            ageList[ageIndex ++] = age;
         }
     }
     public void addMajor(String major,Double gpa){
@@ -60,36 +60,37 @@ public class DataStructure {
 
     //DISPLAY ITEMS
     public void printStudents(){
-        System.out.println("Students:");
+        System.out.println("\nStudents:");
         for (String student : studentList){
             System.out.println(student);
         }
     }
     public void printArray(){
+        System.out.println("\nArrays: ");
+        System.out.println("The Content in the array: ");
         for (int i = 0; i < ageList.length; i++){
-            System.out.println("\nArrays: ");
-            System.out.printf("The Content in the array: \n\t%d\n",ageList[i]);
+            System.out.printf("\t%d\n",ageList[i]);
         }
     }
     public void printMajorGPA(){
-        System.out.println("Major and GPA:");
+        System.out.println("\nMajor and GPA:");
         for (String major : majorGpaMap.keySet()){
-            System.out.println("Major" + major + "GPA" + majorGpaMap.get(major));
+            System.out.println("Major: " + major + "\nGPA: " + majorGpaMap.get(major));
         }
     }
     public void printNationality(){
-        System.out.println("Nationality: ");
+        System.out.println("\nNationality: ");
         for (String nationality : nationalityList){
             System.out.println(nationality);
         }
     }
     public void printTown(){
-        System.out.println("Home Town Stack: ");
+        System.out.println("\nHome Town Stack: ");
         for (String town : hometownStack)
             System.out.println(town);
     }
     public void printState(){
-        System.out.println("Home State Queue: ");
+        System.out.println("\nHome State Queue: ");
         for (String state : homeStateQueue){
             System.out.println(state);
         }
