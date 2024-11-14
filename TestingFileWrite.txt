@@ -1,0 +1,3 @@
+<User Name>          <Password>           <Score>           <Player Character>   <Winning Percentage>
+owen                 paass                34     grreeen       12.10          
+o                    o                    23     pw            12.10          
