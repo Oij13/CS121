@@ -1,19 +1,27 @@
 package projectThree;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Bank {
-    ArrayList<String> customers = new ArrayList<>();
+    HashMap<Integer, Customer> customers = new HashMap<>();
 
-    public void addCustomer(String customer){
-        customers.add(customer);
+
+    public void addCustomer(Customer customer){
+        customers.put(customer.getPin(), customer);
     }
-    public void removeCustomer(String customer){
+
+    public void removeCustomer(Customer customer){
         customers.remove(customer);
     }
-    public int customerPin(){
-        for (int i = 0; i < customers.length)
-        return customers[i];
+
+    public void customerPin(Customer pin){
+        if (customers.containsKey(pin.getPin())) {
+            customers.get(pin);
+        }else {
+            System.out.println("Account with that pin does not exist.");
+        }
     }
+
+
 
 }
