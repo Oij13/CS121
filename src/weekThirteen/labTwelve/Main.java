@@ -5,42 +5,42 @@ public class Main {
         DataStructure ds = new DataStructure();
 
         ds.addStudent("Susan");
-        ds.addStudent("Susan");
-        ds.addStudent("Susan");
+        ds.addStudent(5);
+        ds.addStudent(6.7);
         ds.printStudents();
         ds.removeStudent();
         ds.printStudents();
 
         ds.addAge(30);
-        ds.addAge(50);
-        ds.addAge(40);
+        ds.addAge("50");
+        ds.addAge("sad");
         ds.printArray();
         ds.removeAge();
 
         ds.addMajor("CS",3.8);
-        ds.addMajor("Cybersecurity",3.8);
-        ds.addMajor("Sport Ad",3.5);
+        ds.addMajor(345,"string");
+        ds.addMajor(43.2,"Cyber");
         ds.printMajorGPA();
-        ds.removeMajor("Cybersecurity");
+        ds.removeMajor(43.2);
         ds.printMajorGPA();
 
         ds.addNationality("American");
-        ds.addNationality("English");
-        ds.addNationality("German");
+        ds.addNationality(2345);
+        ds.addNationality(234.2);
         ds.printNationality();
         ds.removeNationality();
         ds.printNationality();
 
-        ds.addHomeState("Indiana");
+        ds.addHomeState(50);
         ds.addHomeState("Georgia");
-        ds.addHomeState("Alabama");
+        ds.addHomeState(34.5);
         ds.printState();
         ds.removeState();
         ds.printState();
 
-        ds.addHometown("Decatur");
+        ds.addHometown(2345);
         ds.addHometown("Fort Wayne");
-        ds.addHometown("Geneva");
+        ds.addHometown(543.6);
         ds.printTown();
         ds.removeTown();
         ds.printTown();
