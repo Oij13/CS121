@@ -14,13 +14,20 @@ public class Bank {
         customers.remove(customer);
     }
 
-    public void customerPin(Customer pin){
+    public Customer customerPin(Customer pin){
         if (customers.containsKey(pin.getPin())) {
             customers.get(pin);
+            return pin;
         }else {
             System.out.println("Account with that pin does not exist.");
         }
+        return null;
     }
+
+    public HashMap<Integer, Customer> getAllCustomer(){
+        return customers;
+    }
+
 
 
 
