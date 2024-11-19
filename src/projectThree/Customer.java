@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Customer {
     private String fName, lName;
     private int pin;
-    ArrayList<Account> accounts = new ArrayList<>();
+    ArrayList<Account> accounts;
 
     public Customer(String fName, String lName, int pin){
         this.fName = fName;
@@ -15,7 +15,7 @@ public class Customer {
     }
 
     public String getFullName() {
-        return fName + "" + lName;
+        return fName + " " + lName;
     }
     public int getPin() {
         return pin;
@@ -39,6 +39,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return String.format("Customer's name: %s %s\nPIN: %f",fName,lName,pin);
+        return String.format("Customer's name: %s\nPIN: %f",getFullName(),pin);
     }
 }

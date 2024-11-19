@@ -11,17 +11,15 @@ public class Bank {
     }
 
     public void removeCustomer(Customer customer){
-        customers.remove(customer);
+        if (customers.remove(customer.getPin()) != null) {
+            System.out.println("Customer removed successfully.");
+        } else {
+            System.out.println("Customer not found.");
+        }
     }
 
-    public Customer customerPin(Customer pin){
-        if (customers.containsKey(pin.getPin())) {
-            customers.get(pin);
-            return pin;
-        }else {
-            System.out.println("Account with that pin does not exist.");
-        }
-        return null;
+    public Customer customerPin(int pin){
+        return customers.get(pin);
     }
 
     public HashMap<Integer, Customer> getAllCustomer(){

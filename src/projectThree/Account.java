@@ -5,9 +5,9 @@ public class Account {
     private int accountNum;
     private static int numOfAcc = 1000;
 
-    public Account(double balance, int accountNum){
+    public Account(double balance){
         this.balance = balance;
-        this.accountNum = accountNum;
+        this.accountNum = ++accountNum;
     }
 
     public void deposit(double dep){
@@ -20,13 +20,13 @@ public class Account {
                System.out.println("Insufficient funds");
            } else if (balance >= with) {
                balance -= with;
-               System.out.println(with + "withdrawn from account" + accountNum);
+               System.out.println("$" + with + " withdrawn from account " + accountNum);
                return;
            }
        }
     }
 
-    public double getbalance() {
+    public double getBalance() {
         return balance;
     }
     public int getAccountNum(){
