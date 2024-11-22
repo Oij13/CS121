@@ -62,31 +62,35 @@ public class Menu {
                 return;
             }
 
-            System.out.println("Please make a selection: \n" +
-                    "1) Make a deposit\n" +
-                    "2) Make a withdrawal\n" +
-                    "3) See account balance\n" +
-                    "4) Close account\n" +
-                    "5) Exit");
+            while(true) {
+                System.out.println("Please make a selection: \n" +
+                        "1) Make a deposit\n" +
+                        "2) Make a withdrawal\n" +
+                        "3) See account balance\n" +
+                        "4) Close account\n" +
+                        "5) Exit");
 
-            int response = Integer.parseInt(scn.nextLine());
-            if (response == 1) {
-                System.out.println("Enter your deposit amount: ");
-                double amount = scn.nextDouble();
-                account.deposit(amount);
-            } else if (response == 2) {
-                System.out.println("Enter your withdrawal amount: ");
-                double amount = scn.nextDouble();
-                account.withdraw(amount);
-            } else if (response == 3) {
-                System.out.println("Account Balance: $" + account.getBalance());
-            } else if (response == 4) {
-                System.out.println("Closing account: " + account);
-                customer.removeAccount(account);
-            } else if (response == 5) {
-                System.out.println("Returning to main menu");
-            } else {
-                System.out.println("Invalid choice");
+                int response = Integer.parseInt(scn.nextLine());
+                if (response == 1) {
+                    System.out.println("Enter your deposit amount: ");
+                    double amount = scn.nextDouble();
+                    account.deposit(amount);
+                } else if (response == 2) {
+                    System.out.println("Enter your withdrawal amount: ");
+                    double amount = scn.nextDouble();
+                    account.withdraw(amount);
+                } else if (response == 3) {
+                    System.out.println("Account Balance: $" + account.getBalance());
+                } else if (response == 4) {
+                    System.out.println("Closing account: " + account);
+                    customer.removeAccount(account);
+                    return;
+                } else if (response == 5) {
+                    System.out.println("Returning to main menu");
+                    return;
+                } else {
+                    System.out.println("Invalid choice");
+                }
             }
         } catch (Exception e){
             System.out.println("PIN not valid.");
@@ -97,6 +101,7 @@ public class Menu {
         try {
             System.out.println("Are you a new customer Y/N:");
             String response = scn.nextLine();
+            response = response.toUpperCase();
             Customer customer;
             if (response.equals("Y")) {
                 customer = createNewCustomer();
@@ -128,45 +133,6 @@ public class Menu {
             System.out.println("Invalid input");
             scn.nextLine();
         }
-        /*System.out.println("Are you a new customer Y/N:");
-        String response = scn.nextLine();
-        Customer customer = null;
-        if (response.equals("Y")){
-            customer = createNewCustomer();
-            if (customer == null){
-                return;
-            }
-        } else if (response.equals("N")) {
-            try {
-                System.out.println("Please enter your PIN: ");
-                int pin = scn.nextInt();
-                scn.nextLine();
-                customer = bank.customerPin(pin);
-            } catch (Exception e) {
-                System.out.println("PIN is not valid.");
-            }
-        } else{
-            return;
-        }
-        System.out.println("Please enter your initial deposit amount: ");
-        double deposit;
-        while(true) {
-            try {
-                deposit = scn.nextDouble();
-                scn.nextLine();
-                Account account = new Account(deposit);
-
-                customer.addAccount(account);
-
-                System.out.printf("New Account Opened: %.2f\n", account.getBalance());
-                break;
-            } catch (Exception e) {
-                System.out.println("Please enter appropriate amount.");
-                scn.nextLine();
-
-            }
-
-        }*/
 
     }
     public Customer createNewCustomer(){
@@ -177,6 +143,11 @@ public class Menu {
         System.out.println("Enter your 4-digit PIN: ");
         int pin = scn.nextInt();
         scn.nextLine();
+
+        if (pin < 1000 || pin > 9999){
+            System.out.println("Invalid PIN. Please make sure your pin is 4-digits long");
+            return null;
+        }
 
         if (bank.customerPin(pin) == null) {
             Customer customer = new Customer(fName, lName, pin);
