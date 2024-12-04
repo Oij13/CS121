@@ -1,6 +1,4 @@
 package projectThree;
-import java.util.IllegalFormatCodePointException;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
