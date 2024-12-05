@@ -1,4 +1,4 @@
-package projectThree;
+package CS121Projects.projectThree;
 
 public class Account {
     private double balance;

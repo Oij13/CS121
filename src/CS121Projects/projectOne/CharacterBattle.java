@@ -1,6 +1,6 @@
-package projectOne;
+package CS121Projects.projectOne;
 import java.util.Scanner;
-import java.util.Random;
+
 public class CharacterBattle {
     private static void promptEnterKey(Scanner scn) {
         System.out.println("Press Enter to continue...");

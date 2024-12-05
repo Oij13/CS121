@@ -1,4 +1,4 @@
-package projectTwo;
+package CS121Projects.projectTwo;
 
 import java.util.Random;
 import java.util.Scanner;
