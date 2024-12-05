@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank>
+    <bank id="1">
+        <accntNum>123456</accntNum>
+        <balance>60000.00</balance>
+        <accntType>Checkings</accntType>
+    </bank>
+    <bank id="2">
+        <accntNum>234567</accntNum>
+        <balance>55000.00</balance>
+        <accntType>Savings</accntType>
+    </bank>
+</bank>
