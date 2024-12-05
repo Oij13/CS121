@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
 public class BankXML {
     public static void main(String[] args) {
         try {
-            File input = new File("BankAccount.xml");
+            File input = new File("C:\\Users\\Owen\\IdeaProjects\\CS121OJ\\src\\weekFifteen\\XMLActivity\\BankAccount.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(input);
@@ -18,14 +18,14 @@ public class BankXML {
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 
             NodeList bankList = doc.getElementsByTagName("bank");
-            for (int i = 0; i < bankList.getLength(); i++){
+            for (int i = 1; i < bankList.getLength(); i++){
                 Node node = bankList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE){
                     Element element = (Element) node;
                     System.out.println("ID: " + element.getAttribute("id"));
-                    System.out.println("Account Number" + element.getElementsByTagName("accntNum").item(0).getTextContent());
-                    System.out.println("Account Balance" + element.getElementsByTagName("balance").item(0).getTextContent());
-                    System.out.println("Account Type" + element.getElementsByTagName("accntType").item(0).getTextContent());
+                    System.out.println("Account Number: " + element.getElementsByTagName("accntNum").item(0).getTextContent());
+                    System.out.println("Account Balance: " + element.getElementsByTagName("balance").item(0).getTextContent());
+                    System.out.println("Account Type: " + element.getElementsByTagName("accntType").item(0).getTextContent());
                     System.out.println();
                 }
             }
